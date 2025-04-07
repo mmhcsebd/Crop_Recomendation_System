@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Arimo|Hind:300|Open+Sans+Condensed:300" rel="stylesheet">
+
+    <!-- Corrected CSS Path -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>
+            Crop Recommendation System
+            <span class="author">Made By Mahmudul</span>
+        </h1>
+
+        <!-- Form for user input -->
+        <form action="{{ url_for('predict')}}" method="post">
+            <input type="text" name="Nitrogen" placeholder="Nitrogen" required>
+            <input type="text" name="Phosphorus" placeholder="Phosphorus" required>
+            <input type="text" name="Potassium" placeholder="Potassium" required>
+            <input type="text" name="Temperature" placeholder="Temperature" required>
+            <input type="text" name="Humidity" placeholder="Humidity" required>
+            <input type="text" name="pH" placeholder="pH" required>
+            <input type="text" name="Rainfall" placeholder="Rainfall" required>
+
+            <button type="submit" class="btn">PREDICT</button>
+        </form>
+
+        <h1 id="prediction_text">
+            <strong>{{ prediction_text }}</strong>
+        </h1>
+    </div>
+
+</body>
+</html>
